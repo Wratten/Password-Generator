@@ -36,41 +36,48 @@ let generatePassword = function () {
 
   // ask to include symbols
   let includeSymbols = window.confirm("Would you like to include symbols?");
+
+  // once all inputs are selected
+  let characterSet = "";
+
+  if (includeLowercase) {
+    characterSet = characterSet + lowercase;
+  }
+  if (includeUppercase) {
+    characterSet = characterSet + uppercase;
+  }
+  if (includeNumbers) {
+    characterSet = characterSet + numbers;
+  }
+  if (includeSymbols) {
+    characterSet = characterSet + symbols;
+  }
+
+  if (
+    !includeLowercase &&
+    !includeUppercase &&
+    !includeNumbers &&
+    !includeSymbols
+  ) {
+    window.alert("You must choose at least one character type");
+    return;
+  }
+
+  // generate password
+  let password = "";
+
+  for (let i = 0; i < passwordLength; i++) {
+    // Select a random character from chosen inputs
+    const randomCharacter =
+      characterSet[Math.floor(Math.random() * characterSet.length)];
+
+    // add to password
+    password = password + randomCharacter;
+  }
+
+  return password;
+  // once password is decided
 };
-
-// once all inputs are selected
-let characterSet = "";
-
-if ((includeLowercase = true)) {
-  characterSet = characterSet + lowercase;
-}
-if ((includeUppercase = true)) {
-  characterSet = characterSet + uppercase;
-}
-if ((includeNumbers = true)) {
-  characterSet = characterSet + numbers;
-}
-if ((includeSymbols = true)) {
-  characterSet = characterSet + symbols;
-}
-
-// generate password
-let password = "";
-
-for (let i = 0; i < passwordLength; i++) {
-  // Select a random character from chosen inputs
-  const randomCharacter =
-    characterSet[Math.floor(Math.random() * characterSet.length)];
-
-  // add to password
-  password = password + randomCharacter;
-}
-
-// once password is decided
-console.log(password);
-
-// display password in box
-textareaPassword.textContent = password;
 
 // Starting Code
 // Generate password button
