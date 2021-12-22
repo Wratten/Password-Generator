@@ -52,7 +52,7 @@ let generatePassword = function () {
   if (includeSymbols) {
     characterSet = characterSet + symbols;
   }
-
+  // if no inputs are selected, display error message
   if (
     !includeLowercase &&
     !includeUppercase &&
@@ -75,8 +75,8 @@ let generatePassword = function () {
     password = password + randomCharacter;
   }
 
+  // once password is decided, return password
   return password;
-  // once password is decided
 };
 
 // Starting Code
