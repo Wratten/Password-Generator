@@ -11,5 +11,5 @@ A website made using HTML, CSS, & JS with the purpose of generating a random str
 
 # 📑 [Deployed Website](https://wratten.github.io/Password-Generator/)
 
-!<img src="websitescreenshot.PNG"
+<img src="websitescreenshot.PNG"
      alt="Screenshot of password generator website"/>
